@@ -35,7 +35,7 @@ La pagina representa problemas del contexto de crisis mediante modelos matematic
 | HTML5 semantico | Las paginas usan `header`, `nav`, `main`, `section`, `article` y `footer`. |
 | CSS externo | Los estilos estan separados en `styles/estilos.css`. |
 | JavaScript externo | Cada simulador tiene su archivo propio en la carpeta `js`. |
-| Uso del DOM | Los JS usan `document.getElementById`, actualizan `innerHTML`, agregan clases y muestran resultados. |
+| Uso del DOM | Los JS usan `document.getElementById`. |
 | Formularios | Hay formularios con `input`, `select`, botones de calcular, limpiar y aplicar casos de estudio. |
 | Validaciones basicas | Se validan campos vacios, numeros invalidos, valores negativos y condiciones logicas. |
 | Resultados visibles | Los resultados aparecen en tarjetas, tablas, alertas y barras visuales, no solo en consola. |
@@ -47,17 +47,6 @@ La pagina representa problemas del contexto de crisis mediante modelos matematic
 | Organizacion en carpetas | El proyecto separa HTML, CSS, JS e imagenes. |
 | README | Este archivo describe el proyecto, los casos, la estructura y la forma de entrega. |
 
-## Contenido minimo pedido
-
-El documento pide que la pagina incluya Inicio, Contexto, Simulador, Resultados, Casos de estudio, Conclusiones y Creditos.
-
-- **Inicio:** `index.html` presenta el titulo, el objetivo, el contexto general y acceso a los tres escenarios.
-- **Contexto:** cada pagina explica la situacion del escenario elegido.
-- **Simulador:** cada escenario tiene formulario propio y boton para calcular.
-- **Resultados:** cada pagina tiene un area oculta que JavaScript muestra con resultados dinamicos.
-- **Casos de estudio:** cada simulador incluye ejemplos con datos ya definidos.
-- **Conclusiones:** cada pagina explica que se aprende del modelo.
-- **Creditos:** el pie de pagina incluye materia, gestion y espacio para el nombre del estudiante.
 
 ## Casos de estudio incorporados
 
@@ -142,44 +131,9 @@ Proyecto fina/
 4. Revisar las tarjetas, tablas, alertas y barras generadas por JavaScript.
 5. Probar el boton de limpiar para verificar que el formulario y resultados se reinicien.
 
-## Imagenes
 
-La carpeta `img` contiene `bloqueo1.jpg`, usada como imagen principal del inicio. Tambien incluye `img/README-imagenes.md`, donde se indican imagenes recomendadas para completar el contexto visual:
 
-- Filas en gasolineras.
-- Mercados con precios altos.
-- Productos de canasta familiar.
-- Estantes vacios o productos racionados.
-- Bloqueos o calles afectadas por protestas.
-
-## Checklist de autoevaluacion
-
-| Pregunta del checklist | Estado |
-| --- | --- |
-| Titulo claro | Cumplido |
-| Problema real explicado | Cumplido |
-| HTML5 semantico | Cumplido |
-| CSS separado | Cumplido |
-| JavaScript separado | Cumplido |
-| Carpetas organizadas | Cumplido |
-| Paleta adecuada y contraste | Cumplido |
-| Responsive | Cumplido |
-| Formularios con datos | Cumplido |
-| Calculos con JavaScript | Cumplido |
-| DOM para capturar y mostrar | Cumplido |
-| Resultados en pantalla | Cumplido |
-| Validaciones | Cumplido |
-| Alertas o interpretacion | Cumplido |
-| Casos de estudio | Cumplido |
-| Codigo ordenado y comentado | Cumplido |
-| README | Cumplido |
-| Repositorio Git | Pendiente de subir por el estudiante |
-| Pagina publicada | Pendiente de publicar por el estudiante |
-| Enlaces de entrega | Pendiente de completar cuando se publique |
-
-## Entrega final sugerida
-
-Completar estos datos antes de entregar:
+## Entrega final 
 
 ```text
 Nombre completo: Ariel Orlando Bustillos Cadena
