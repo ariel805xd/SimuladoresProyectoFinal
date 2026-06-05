@@ -6,7 +6,7 @@ La pagina representa problemas del contexto de crisis mediante modelos matematic
 
 ## Escenarios sugeridos que se tomaron
 
-El documento permite elegir uno o varios escenarios. Este proyecto selecciona **3 escenarios sugeridos** porque son los mas relacionados entre si y permiten explicar la crisis desde distintos angulos:
+
 
 - **Escenario A: Simulador de abastecimiento de carburantes**
   - Archivo: `carburantes.html`
@@ -26,7 +26,6 @@ El documento permite elegir uno o varios escenarios. Este proyecto selecciona **
   - Problema: un rumor aumenta la demanda y puede volver insuficiente el stock.
   - Calcula: nueva demanda, diferencia con la demanda normal, stock restante, deficit y familias afectadas.
 
-No se implementaron los escenarios C, D y F porque el documento indica que el estudiante puede elegir uno o varios escenarios. El proyecto ya trabaja tres casos completos y conectados con el tema central.
 
 ## Como cumple con el documento
 
