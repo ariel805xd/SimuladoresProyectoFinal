@@ -1,9 +1,3 @@
-/* ============================================================
-   Simulador A: Abastecimiento de carburantes
-   Captura datos del formulario, valida, calcula y muestra
-   resultados usando el DOM.
-   ============================================================ */
-
 const formatoLitros = new Intl.NumberFormat("es-BO", {
   maximumFractionDigits: 0
 });

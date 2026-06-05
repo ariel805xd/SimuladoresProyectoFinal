@@ -1,8 +1,3 @@
-/* ============================================================
-   Simulador E: Rumor de escasez y compras por pánico
-   Modela cómo cambia la demanda cuando aumenta por rumor.
-   ============================================================ */
-
 const formatoUnidades = new Intl.NumberFormat("es-BO", {
   maximumFractionDigits: 1
 });

@@ -1,8 +1,3 @@
-/* ============================================================
-   Simulador B: Precios de alimentos
-   Gestiona una lista de productos y calcula el impacto del alza.
-   ============================================================ */
-
 let productos = [];
 
 const moneda = new Intl.NumberFormat("es-BO", {
