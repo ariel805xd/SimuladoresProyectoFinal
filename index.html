@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador de Crisis La Paz 2026 | Programación Web I</title>
+  <meta name="description" content="Página web interactiva para simular problemas reales de abastecimiento, precios y pánico en el contexto de la crisis de La Paz 2026." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="styles/estilos.css" />
+</head>
+<body>
+
+  <!-- ===== BARRA DE BANDERA BOLIVIANA ===== -->
+  <div class="flag-stripe"></div>
+
+  <!-- ===== NAVEGACIÓN PRINCIPAL ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-crisis">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <i class="bi bi-graph-up-arrow me-2"></i>Crisis <span>La Paz</span> 2026
+        </a>
+        <button class="navbar-toggler" type="button"
+          data-bs-toggle="collapse" data-bs-target="#navPrincipal"
+          aria-controls="navPrincipal" aria-expanded="false" aria-label="Menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navPrincipal">
+          <ul class="navbar-nav ms-auto gap-1">
+            <li class="nav-item">
+              <a class="nav-link activo" href="index.html">
+                <i class="bi bi-house me-1"></i>Inicio
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="carburantes.html">
+                <i class="bi bi-fuel-pump me-1"></i>Carburantes
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="alimentos.html">
+                <i class="bi bi-basket me-1"></i>Alimentos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="panico.html">
+                <i class="bi bi-people me-1"></i>Pánico
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="inicio" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6" data-bs-order="1">
+            <div class="badge-alerta">🔴 Situación de Crisis — La Paz, Bolivia 2026</div>
+            <h1 class="hero-title">
+              Simulador Web de Abastecimiento, Precios y Consumo Familiar
+            </h1>
+            <p class="hero-subtitle mb-4">
+              Herramienta educativa que modela matemáticamente cómo la escasez de carburante,
+              el alza de precios y el pánico colectivo afectan a familias y comunidades en
+              contexto de crisis social.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span class="chip-tecnologia" style="background:#fff3cd; border-color:#ffc107; color:#856404;">HTML5</span>
+              <span class="chip-tecnologia" style="background:#d1ecf1; border-color:#17a2b8; color:#0c5460;">CSS3</span>
+              <span class="chip-tecnologia" style="background:#d4edda; border-color:#28a745; color:#155724;">JavaScript</span>
+              <span class="chip-tecnologia" style="background:#e2d9f3; border-color:#6f42c1; color:#432874;">Bootstrap 5</span>
+              <span class="chip-tecnologia" style="background:#f8d7da; border-color:#dc3545; color:#721c24;">DOM</span>
+            </div>
+            <a href="#simuladores" class="btn btn-warning fw-bold px-4 py-2">
+              <i class="bi bi-play-circle me-2"></i>Ver Simuladores
+            </a>
+          </div>
+          <div class="col-lg-6" data-bs-order="2">
+            <figure class="imagen-destacada">
+              <img src="img/bloqueo1.jpg" alt="Bloqueo urbano con humo y personas concentradas en una avenida de El Alto" />
+              <figcaption>
+                Imagen de contexto: bloqueo urbano durante una jornada de protesta.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTEXTO DE CRISIS ===== -->
+    <section id="contexto" class="seccion-py bg-blanco">
+      <div class="container">
+        <div class="encabezado-seccion">
+          <span class="etiqueta-seccion">📍 Contexto Actual</span>
+          <h2>¿Qué está pasando en La Paz?</h2>
+          <div class="divider peligro"></div>
+          <p class="mt-3">
+            La ciudad de La Paz atraviesa una severa crisis social, política y económica
+            impulsada por un paro general indefinido desde mayo de 2026.
+          </p>
+        </div>
+
+        <div class="row g-4 mb-4">
+          <div class="col-lg-8">
+            <div class="bloque-crisis mb-4">
+              <h5 class="fw-bold mb-3">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                Situación Crítica — Paro General Indefinido
+              </h5>
+              <p style="font-size:0.94rem;">
+                El paro general liderado por la COB y sectores afines a Evo Morales exige
+                la renuncia del presidente Rodrigo Paz ante el desabastecimiento general.
+                Los bloqueos de carreteras han generado una crisis humanitaria sin precedentes.
+              </p>
+            </div>
+
+            <div class="punto-crisis">
+              <h6><i class="bi bi-fuel-pump me-2"></i>Carburantes Escasos</h6>
+              <p>Filas de horas en gasolineras, precios disparados en el mercado negro y transporte urbano paralizado por falta de combustible.</p>
+            </div>
+
+            <div class="punto-crisis">
+              <h6><i class="bi bi-heart-pulse me-2"></i>Emergencia Sanitaria</h6>
+              <p>Hospitales sin insumos médicos ni oxígeno. Cirugías programadas canceladas y reservas de sangre al mínimo histórico.</p>
+            </div>
+
+            <div class="punto-crisis">
+              <h6><i class="bi bi-basket me-2"></i>Alimentos y Precios</h6>
+              <p>Escasez severa de alimentos básicos. Mercados con estantes casi vacíos y precios que han aumentado hasta un 60% en productos esenciales.</p>
+            </div>
+
+            <div class="punto-crisis">
+              <h6><i class="bi bi-people me-2"></i>Pánico Social</h6>
+              <p>Rumores de escasez generan compras masivas por pánico, lo que agrava aún más el desabastecimiento y la especulación de precios.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+           <img src="img/bloqueo2.jpg" alt="Vista aérea de un bloqueo con humo y vehículos detenidos en una carretera" class="img-fluid rounded-3 mb-4" />
+            </div>
+
+            <div class="mt-3 p-3 bg-light border rounded-3">
+              <div class="text-center mb-2">
+                <small class="text-muted fw-bold text-uppercase" style="letter-spacing:1px;">Impacto Económico</small>
+              </div>
+              <div class="d-flex justify-content-between border-bottom py-2">
+                <small class="text-muted">Pérdidas comerciales</small>
+                <small class="fw-bold text-danger">Millonarias</small>
+              </div>
+              <div class="d-flex justify-content-between border-bottom py-2">
+                <small class="text-muted">Días de paro</small>
+                <small class="fw-bold text-danger">Indefinido</small>
+              </div>
+              <div class="d-flex justify-content-between py-2">
+                <small class="text-muted">Estado del transporte</small>
+                <small class="fw-bold text-danger">Paralizado</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SIMULADORES ===== -->
+    <section id="simuladores" class="seccion-py bg-claro">
+      <div class="container">
+        <div class="encabezado-seccion">
+          <span class="etiqueta-seccion">🖥️ Simuladores</span>
+          <h2>Escenarios Seleccionados</h2>
+          <div class="divider primario"></div>
+          <p class="mt-3">
+            Se seleccionaron tres escenarios que modelan con precisión matemática
+            los principales problemas de la crisis actual.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Escenario A -->
+          <div class="col-md-4">
+            <a href="carburantes.html" class="card-escenario">
+              <div class="cabecera-card fuel">
+                <div class="letra-escenario">A</div>
+                <h5>Simulador de Abastecimiento de Carburantes</h5>
+              </div>
+              <div class="cuerpo-card">
+                <p>
+                  Calcula cuántos días durará la reserva de una estación de servicio según
+                  el consumo diario y el nivel de reabastecimiento. Identifica el día crítico
+                  y el día de agotamiento total.
+                </p>
+                <div class="d-flex flex-wrap gap-1 mb-3">
+                  <span style="font-size:0.75rem; background:#f8d7da; color:#842029; padding:2px 9px; border-radius:20px; font-weight:600;">⛽ Reserva</span>
+                  <span style="font-size:0.75rem; background:#f8d7da; color:#842029; padding:2px 9px; border-radius:20px; font-weight:600;">📉 Consumo</span>
+                  <span style="font-size:0.75rem; background:#f8d7da; color:#842029; padding:2px 9px; border-radius:20px; font-weight:600;">📋 Tabla Diaria</span>
+                </div>
+                <div class="btn-ver">Ir al Simulador <i class="bi bi-arrow-right"></i></div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Escenario B -->
+          <div class="col-md-4">
+            <a href="alimentos.html" class="card-escenario">
+              <div class="cabecera-card food">
+                <div class="letra-escenario">B</div>
+                <h5>Simulador de Precios de Alimentos</h5>
+              </div>
+              <div class="cuerpo-card">
+                <p>
+                  Compara los precios anteriores y actuales de productos básicos de la canasta
+                  familiar. Calcula el incremento, porcentaje de aumento y cuánto más gasta
+                  la familia cada mes.
+                </p>
+                <div class="d-flex flex-wrap gap-1 mb-3">
+                  <span style="font-size:0.75rem; background:#fdebd0; color:#7e4d0e; padding:2px 9px; border-radius:20px; font-weight:600;">🛒 Precios</span>
+                  <span style="font-size:0.75rem; background:#fdebd0; color:#7e4d0e; padding:2px 9px; border-radius:20px; font-weight:600;">📊 % Aumento</span>
+                  <span style="font-size:0.75rem; background:#fdebd0; color:#7e4d0e; padding:2px 9px; border-radius:20px; font-weight:600;">💰 Gasto</span>
+                </div>
+                <div class="btn-ver">Ir al Simulador <i class="bi bi-arrow-right"></i></div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Escenario E -->
+          <div class="col-md-4">
+            <a href="panico.html" class="card-escenario">
+              <div class="cabecera-card panico">
+                <div class="letra-escenario">E</div>
+                <h5>Simulador de Rumor de Escasez y Pánico</h5>
+              </div>
+              <div class="cuerpo-card">
+                <p>
+                  Modela cómo un rumor de escasez dispara la demanda de forma irracional,
+                  agotando el stock disponible. Muestra cuántas familias quedan sin
+                  abastecimiento ante el pánico colectivo.
+                </p>
+                <div class="d-flex flex-wrap gap-1 mb-3">
+                  <span style="font-size:0.75rem; background:#d1ecf1; color:#0c5460; padding:2px 9px; border-radius:20px; font-weight:600;">📣 Rumor</span>
+                  <span style="font-size:0.75rem; background:#d1ecf1; color:#0c5460; padding:2px 9px; border-radius:20px; font-weight:600;">📈 Demanda</span>
+                  <span style="font-size:0.75rem; background:#d1ecf1; color:#0c5460; padding:2px 9px; border-radius:20px; font-weight:600;">📦 Stock</span>
+                </div>
+                <div class="btn-ver">Ir al Simulador <i class="bi bi-arrow-right"></i></div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CASOS DE ESTUDIO (RESUMEN) ===== -->
+    <section id="casos-estudio" class="seccion-py bg-blanco">
+      <div class="container">
+        <div class="encabezado-seccion">
+          <span class="etiqueta-seccion">🧪 Casos de Estudio</span>
+          <h2>Datos de Prueba para Probar</h2>
+          <div class="divider advertencia"></div>
+          <p class="mt-3">
+            Cada simulador incluye casos de estudio con datos reales para verificar
+            que los cálculos funcionan correctamente.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Caso 1 -->
+          <div class="col-md-4">
+            <div class="tarjeta-caso">
+              <h6><i class="bi bi-fuel-pump me-2" style="color:#c0392b;"></i>Caso 1: Reserva de Carburante</h6>
+              <table class="tabla-caso">
+                <tr><td>Reserva inicial</td><td>10,000 L</td></tr>
+                <tr><td>Consumo diario</td><td>1,200 L/día</td></tr>
+                <tr><td>Reabastecimiento</td><td>300 L/día</td></tr>
+                <tr><td>Nivel crítico</td><td>2,000 L</td></tr>
+              </table>
+              <p style="font-size:0.82rem; color:var(--color-muted);">
+                <strong>Resultado esperado:</strong> La reserva llega al nivel crítico alrededor del día 9.
+              </p>
+              <a href="carburantes.html" class="btn-caso">
+                <i class="bi bi-play-fill"></i> Probar en Simulador A
+              </a>
+            </div>
+          </div>
+
+          <!-- Caso 2 -->
+          <div class="col-md-4">
+            <div class="tarjeta-caso">
+              <h6><i class="bi bi-basket me-2" style="color:#d35400;"></i>Caso 2: Precios de Alimentos</h6>
+              <table class="tabla-caso">
+                <tr><td>Arroz</td><td>8 Bs → 11 Bs · 10 u/mes</td></tr>
+                <tr><td>Papa</td><td>7 Bs → 10 Bs · 8 u/mes</td></tr>
+                <tr><td>Aceite</td><td>12 Bs → 18 Bs · 4 u/mes</td></tr>
+              </table>
+              <p style="font-size:0.82rem; color:var(--color-muted);">
+                <strong>Resultado esperado:</strong> Gasto anterior: 190 Bs; actual: 254 Bs; diferencia: +64 Bs.
+              </p>
+              <a href="alimentos.html" class="btn-caso">
+                <i class="bi bi-play-fill"></i> Probar en Simulador B
+              </a>
+            </div>
+          </div>
+
+          <!-- Caso 3 -->
+          <div class="col-md-4">
+            <div class="tarjeta-caso">
+              <h6><i class="bi bi-people me-2" style="color:#2471a3;"></i>Caso 3: Rumor de Escasez</h6>
+              <table class="tabla-caso">
+                <tr><td>Demanda normal</td><td>100 unidades</td></tr>
+                <tr><td>Aumento por rumor</td><td>40%</td></tr>
+                <tr><td>Stock disponible</td><td>120 unidades</td></tr>
+                <tr><td>Nº de familias</td><td>50</td></tr>
+              </table>
+              <p style="font-size:0.82rem; color:var(--color-muted);">
+                <strong>Resultado esperado:</strong> Nueva demanda 140 u; déficit de 20 u; stock insuficiente.
+              </p>
+              <a href="panico.html" class="btn-caso">
+                <i class="bi bi-play-fill"></i> Probar en Simulador E
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OBJETIVO EDUCATIVO ===== -->
+    <section class="seccion-py bg-claro">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5">
+            <!--
+              ╔══════════════════════════════════════════════════════════╗
+              ║  IMAGEN RECOMENDADA — OBJETIVO EDUCATIVO                ║
+              ║  Foto de estudiantes trabajando con computadoras,      ║
+              ║  o diagrama de modelos matemáticos sobre una pizarra.  ║
+              ║  Resolución sugerida: 600 × 400 px                     ║
+              ╚══════════════════════════════════════════════════════════╝
+            -->
+            <div class="img-placeholder" style="min-height:260px;">
+              <div class="ph-icono">📚</div>
+              <div class="ph-titulo">Contexto Educativo</div>
+              <div class="ph-desc">Foto de aula o pizarra con modelos matemáticos.<br>Dimensión: 600 × 400 px</div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <span class="etiqueta-seccion">🎯 Objetivo del Proyecto</span>
+            <h2 class="mt-3 mb-3">Una Herramienta Educativa, No Política</h2>
+            <p class="text-muted mb-4">
+              Este proyecto aplica los fundamentos de <strong>Programación Web I</strong> para
+              crear modelos matemáticos que expliquen fenómenos económicos reales.
+              La finalidad es comprender cómo ciertos factores afectan el abastecimiento,
+              los precios y la toma de decisiones familiares.
+            </p>
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="d-flex align-items-start gap-2">
+                  <i class="bi bi-check-circle-fill text-success mt-1"></i>
+                  <div>
+                    <div class="fw-bold" style="font-size:0.9rem;">HTML5 Semántico</div>
+                    <div style="font-size:0.82rem; color:var(--color-muted);">header, main, section, footer</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-start gap-2">
+                  <i class="bi bi-check-circle-fill text-success mt-1"></i>
+                  <div>
+                    <div class="fw-bold" style="font-size:0.9rem;">CSS Externo</div>
+                    <div style="font-size:0.82rem; color:var(--color-muted);">Diseño responsivo y coherente</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-start gap-2">
+                  <i class="bi bi-check-circle-fill text-success mt-1"></i>
+                  <div>
+                    <div class="fw-bold" style="font-size:0.9rem;">JavaScript + DOM</div>
+                    <div style="font-size:0.82rem; color:var(--color-muted);">Cálculos dinámicos y validaciones</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-start gap-2">
+                  <i class="bi bi-check-circle-fill text-success mt-1"></i>
+                  <div>
+                    <div class="fw-bold" style="font-size:0.9rem;">Responsivo</div>
+                    <div style="font-size:0.82rem; color:var(--color-muted);">Móvil, tablet y escritorio</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONCLUSIONES ===== -->
+    <section id="conclusiones" class="seccion-conclusiones">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="etiqueta-seccion" style="background:rgba(255,255,255,0.15); color:white;">💡 Conclusiones</span>
+          <h2 class="mt-3 mb-3">Lo que Aprendemos de Esta Crisis</h2>
+          <div class="divider" style="background:var(--bolivia-amarillo); margin:0 auto;"></div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="item-conclusion">
+              <div class="icono-conclusion">⛽</div>
+              <h6>La Reserva se Agota Rápido</h6>
+              <p>Cuando el consumo supera el reabastecimiento, una estación de servicio puede quedarse sin combustible en menos de dos semanas en situación de crisis.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="item-conclusion">
+              <div class="icono-conclusion">📈</div>
+              <h6>Los Precios Golpean a las Familias</h6>
+              <p>Un aumento del 30-50% en productos básicos puede dejar a muchas familias sin poder cubrir su canasta mensual con el mismo ingreso.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="item-conclusion">
+              <div class="icono-conclusion">😨</div>
+              <h6>El Pánico Agrava la Escasez</h6>
+              <p>Cuando la demanda sube un 40% por pánico colectivo, un stock antes suficiente se convierte en insuficiente para toda la comunidad.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="pie-pagina">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h6><i class="bi bi-graph-up-arrow me-1"></i> Crisis La Paz 2026</h6>
+          <p class="mb-0" style="font-size:0.85rem;">
+            Simulador web educativo desarrollado como proyecto final de
+            <strong style="color:rgba(255,255,255,0.85);">Programación Web I</strong>.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h6>Simuladores</h6>
+          <ul class="lista-footer">
+            <li><a href="carburantes.html"><i class="bi bi-fuel-pump me-1"></i>Escenario A: Carburantes</a></li>
+            <li><a href="alimentos.html"><i class="bi bi-basket me-1"></i>Escenario B: Alimentos</a></li>
+            <li><a href="panico.html"><i class="bi bi-people me-1"></i>Escenario E: Pánico</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6>Créditos</h6>
+          <p style="font-size:0.85rem; margin:0; line-height:1.7;">
+            <strong style="color:rgba(255,255,255,0.9);">Estudiante:</strong> [Tu Nombre Completo]<br>
+            <strong style="color:rgba(255,255,255,0.9);">Materia:</strong> Programación Web I<br>
+            <strong style="color:rgba(255,255,255,0.9);">Gestión:</strong> 2026
+          </p>
+        </div>
+      </div>
+      <hr class="separador-footer" />
+      <div class="text-center" style="font-size:0.8rem;">
+        Proyecto educativo — Programación Web I · 2026 ·
+        <a href="https://github.com/[tu-usuario]/proyecto-web-crisis" target="_blank">
+          <i class="bi bi-github me-1"></i>Ver en GitHub
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

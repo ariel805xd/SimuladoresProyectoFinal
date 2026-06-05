@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador de Rumor de Escasez | Crisis La Paz 2026</title>
+  <meta name="description" content="Simula cómo un rumor de escasez puede aumentar la demanda y afectar el stock disponible durante una crisis de abastecimiento." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/estilos.css" />
+</head>
+<body>
+
+  <div class="flag-stripe"></div>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-crisis">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <i class="bi bi-graph-up-arrow me-2"></i>Crisis <span>La Paz</span> 2026
+        </a>
+        <button class="navbar-toggler" type="button"
+          data-bs-toggle="collapse" data-bs-target="#navPanico"
+          aria-controls="navPanico" aria-expanded="false" aria-label="Menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navPanico">
+          <ul class="navbar-nav ms-auto gap-1">
+            <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house me-1"></i>Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="carburantes.html"><i class="bi bi-fuel-pump me-1"></i>Carburantes</a></li>
+            <li class="nav-item"><a class="nav-link" href="alimentos.html"><i class="bi bi-basket me-1"></i>Alimentos</a></li>
+            <li class="nav-item"><a class="nav-link activo" href="panico.html"><i class="bi bi-people me-1"></i>Pánico</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="breadcrumb-barra">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+          <li class="breadcrumb-item active">Simulador E: Rumor de Escasez</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+
+    <section class="hero-pagina">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="escenario-letra" style="background:rgba(36,113,163,0.9); color:white;">E</div>
+              <div class="badge-alerta" style="background:var(--color-info);">Rumor y demanda</div>
+            </div>
+            <h1>Simulador de Rumor de Escasez y Compras por Pánico</h1>
+            <p class="subtitulo-pagina mt-2">
+              Modela cómo un rumor puede aumentar la demanda de productos básicos,
+              reducir el stock disponible y dejar a familias sin abastecimiento.
+            </p>
+          </div>
+          <div class="col-lg-5">
+            <img src="img/escasez2.jpg" alt="Personas comprando en masa en un supermercado, con estantes vacíos" class="img-fluid rounded-3 mb-4" />
+          
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contexto" class="seccion-py-sm bg-blanco">
+      <div class="container">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-8">
+            <h3 class="mb-3">
+              <i class="bi bi-journal-text me-2" style="color:var(--color-info);"></i>
+              Situación del Escenario
+            </h3>
+            <p>
+              En contextos de bloqueo, escasez y tensión social, los rumores pueden
+              modificar el comportamiento de compra. Aunque el stock disponible sea
+              suficiente para una demanda normal, la compra acelerada por temor puede
+              provocar desabastecimiento en pocas horas.
+            </p>
+            <p>
+              Este simulador permite observar ese efecto con un modelo simple: se parte
+              de una demanda normal total y se aplica un porcentaje de aumento provocado
+              por rumor. Luego se compara la nueva demanda contra el stock disponible.
+            </p>
+            <div class="p-3 mb-3" style="background:#eaf4fb; border-left:4px solid var(--color-info); border-radius:0 8px 8px 0;">
+              <strong>Fórmula aplicada:</strong>
+              <div class="mt-2" style="font-family:monospace; font-size:0.92rem;">
+                Nueva demanda = Demanda normal + (Demanda normal x Porcentaje de aumento)
+              </div>
+            </div>
+            <ul class="list-unstyled">
+              <li class="mb-2"><span class="badge-estado badge-normal me-2">Normal</span> El stock supera la nueva demanda.</li>
+              <li class="mb-2"><span class="badge-estado badge-advertencia me-2">Advertencia</span> El stock alcanza, pero queda muy ajustado.</li>
+              <li><span class="badge-estado badge-critico me-2">Crítico</span> La nueva demanda supera el stock disponible.</li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <img src="img/escasez1.jpg" alt="LArgas filas por el pollo por preocupacion" class="img-fluid rounded-3 mb-4" />
+           
+            </div>
+            <div class="mt-3 p-3 bg-light border rounded-3">
+              <p style="font-size:0.82rem; margin:0; color:var(--color-muted);">
+                <i class="bi bi-info-circle me-1"></i>
+                El número de familias se usa para estimar cuántas podrían quedar sin abastecimiento cuando existe déficit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="simulador" class="seccion-py-sm bg-claro">
+      <div class="container">
+        <h3 class="mb-4">
+          <i class="bi bi-calculator me-2" style="color:var(--color-primario);"></i>
+          Simulador
+        </h3>
+
+        <div id="alerta-panico-container" class="mb-3"></div>
+
+        <div class="caja-simulador">
+          <form id="formulario-panico" onsubmit="return false;" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label" for="demandaNormal">
+                  <i class="bi bi-basket me-1"></i>
+                  Demanda normal total (unidades)
+                </label>
+                <input type="number" class="form-control" id="demandaNormal" min="0" step="0.1" placeholder="Ej: 100" />
+                <div class="invalid-feedback">Ingresa una demanda mayor a 0.</div>
+                <div class="form-text">Cantidad que normalmente compra la comunidad en un periodo.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="aumentoRumor">
+                  <i class="bi bi-megaphone me-1"></i>
+                  Porcentaje de aumento por rumor
+                </label>
+                <input type="number" class="form-control" id="aumentoRumor" min="0" step="0.1" placeholder="Ej: 40" />
+                <div class="invalid-feedback">Ingresa un porcentaje igual o mayor a 0.</div>
+                <div class="form-text">Aumento provocado por compras aceleradas o preventivas.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="productoAnalizado">
+                  <i class="bi bi-list-check me-1"></i>
+                  Producto analizado
+                </label>
+                <select class="form-select" id="productoAnalizado">
+                  <option value="alimentos">Alimentos básicos</option>
+                  <option value="aceite">Aceite</option>
+                  <option value="arroz">Arroz</option>
+                  <option value="medicamentos">Medicamentos</option>
+                  <option value="combustible">Combustible doméstico</option>
+                </select>
+                <div class="form-text">Clasifica el tipo de producto afectado por el rumor.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="stockDisponible">
+                  <i class="bi bi-box-seam me-1"></i>
+                  Stock disponible (unidades)
+                </label>
+                <input type="number" class="form-control" id="stockDisponible" min="0" step="0.1" placeholder="Ej: 120" />
+                <div class="invalid-feedback">Ingresa un stock válido.</div>
+                <div class="form-text">Cantidad real disponible en tienda, mercado o almacén.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="numeroFamilias">
+                  <i class="bi bi-people me-1"></i>
+                  Número de familias
+                </label>
+                <input type="number" class="form-control" id="numeroFamilias" min="1" step="1" placeholder="Ej: 50" />
+                <div class="invalid-feedback">Ingresa al menos 1 familia.</div>
+                <div class="form-text">Sirve para estimar familias afectadas si el stock no alcanza.</div>
+              </div>
+            </div>
+
+            <div class="mt-4 d-flex gap-3 flex-wrap">
+              <button class="btn btn-calcular" onclick="calcularPanico()">
+                <i class="bi bi-calculator me-2"></i>Calcular Demanda
+              </button>
+              <button class="btn btn-limpiar" onclick="limpiarFormularioPanico()">
+                <i class="bi bi-trash me-2"></i>Limpiar
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div id="resultados-panico" class="caja-resultados">
+          <h4 class="mb-4">
+            <i class="bi bi-bar-chart-line me-2" style="color:var(--color-primario);"></i>
+            Resultados del Cálculo
+          </h4>
+          <div id="contenido-resultados-panico"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="casos-estudio" class="seccion-py-sm bg-blanco">
+      <div class="container">
+        <div class="encabezado-seccion">
+          <span class="etiqueta-seccion">Casos de Estudio</span>
+          <h2>Datos de Prueba para Verificar</h2>
+          <div class="divider primario"></div>
+          <p class="mt-3">
+            Estos casos permiten comprobar que el simulador calcula la nueva demanda,
+            el stock restante y el déficit de abastecimiento.
+          </p>
+        </div>
+
+        <div class="seccion-casos">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <article class="tarjeta-caso">
+                <h6>
+                  <i class="bi bi-clipboard-data me-2"></i>
+                  Caso de Estudio 1: Rumor de Escasez
+                </h6>
+                <table class="tabla-caso">
+                  <tr><td>Demanda normal</td><td>100 unidades</td></tr>
+                  <tr><td>Aumento por rumor</td><td>40%</td></tr>
+                  <tr><td>Stock disponible</td><td>120 unidades</td></tr>
+                  <tr><td>Número de familias</td><td>50 familias</td></tr>
+                </table>
+                <div class="alerta-resultado advertencia mb-3" style="padding:12px 16px; font-size:0.85rem;">
+                  <div class="icono-alerta"><i class="bi bi-exclamation-triangle-fill"></i></div>
+                  <div class="texto-alerta">
+                    <p>
+                      <strong>Resultado esperado:</strong> nueva demanda de <strong>140 unidades</strong>,
+                      déficit de <strong>20 unidades</strong> y stock insuficiente.
+                    </p>
+                  </div>
+                </div>
+                <button class="btn-caso" onclick="aplicarCasoPanico1()">
+                  <i class="bi bi-play-fill"></i> Aplicar y Calcular
+                </button>
+              </article>
+            </div>
+
+            <div class="col-md-6">
+              <article class="tarjeta-caso">
+                <h6>
+                  <i class="bi bi-clipboard-data me-2"></i>
+                  Caso de Estudio 2: Compra Preventiva Alta
+                </h6>
+                <table class="tabla-caso">
+                  <tr><td>Demanda normal</td><td>180 unidades</td></tr>
+                  <tr><td>Aumento por rumor</td><td>65%</td></tr>
+                  <tr><td>Stock disponible</td><td>240 unidades</td></tr>
+                  <tr><td>Número de familias</td><td>80 familias</td></tr>
+                </table>
+                <div class="alerta-resultado critico mb-3" style="padding:12px 16px; font-size:0.85rem;">
+                  <div class="icono-alerta"><i class="bi bi-exclamation-octagon-fill"></i></div>
+                  <div class="texto-alerta">
+                    <p>
+                      <strong>Resultado esperado:</strong> nueva demanda de <strong>297 unidades</strong>,
+                      déficit de <strong>57 unidades</strong> y cerca de 16 familias afectadas.
+                    </p>
+                  </div>
+                </div>
+                <button class="btn-caso" onclick="aplicarCasoPanico2()">
+                  <i class="bi bi-play-fill"></i> Aplicar y Calcular
+                </button>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="conclusiones" class="seccion-conclusiones">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5">
+            <span class="etiqueta-seccion" style="background:rgba(255,255,255,0.15); color:white;">
+              Conclusiones
+            </span>
+            <h2 class="mt-3 mb-3">¿Qué nos enseña este modelo?</h2>
+            <p>
+              El modelo muestra que el pánico no crea más productos disponibles:
+              solo acelera la demanda. Por eso, una comunidad con stock suficiente
+              puede entrar en escasez cuando muchas familias compran más de lo habitual.
+            </p>
+          </div>
+          <div class="col-lg-7">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="item-conclusion">
+                  <div class="icono-conclusion"><i class="bi bi-megaphone"></i></div>
+                  <h6>El Rumor Cambia Conductas</h6>
+                  <p>Una alerta no verificada puede subir la demanda en minutos y romper la planificación normal.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="item-conclusion">
+                  <div class="icono-conclusion"><i class="bi bi-box-seam"></i></div>
+                  <h6>El Stock Tiene Límite</h6>
+                  <p>Aunque exista producto, el inventario deja de alcanzar cuando todos compran extra.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="item-conclusion">
+                  <div class="icono-conclusion"><i class="bi bi-people"></i></div>
+                  <h6>La Afectación es Comunitaria</h6>
+                  <p>El déficit se traduce en familias que no pueden acceder a productos básicos.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="item-conclusion">
+                  <div class="icono-conclusion"><i class="bi bi-check2-circle"></i></div>
+                  <h6>Informar Reduce el Pánico</h6>
+                  <p>Datos claros sobre stock y reposición ayudan a evitar compras desordenadas.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-6">
+          <h6><i class="bi bi-people me-1"></i> Simulador E: Rumor de Escasez</h6>
+          <p style="margin:0; font-size:0.84rem;">
+            Parte del proyecto: <strong style="color:rgba(255,255,255,0.9);">Simulador de Crisis La Paz 2026</strong>
+          </p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p style="margin:0; font-size:0.84rem; line-height:1.7;">
+            <strong style="color:rgba(255,255,255,0.9);">Estudiante:</strong> [Tu Nombre Completo]<br>
+            <strong style="color:rgba(255,255,255,0.9);">Materia:</strong> Programación Web I · 2026
+          </p>
+        </div>
+      </div>
+      <hr class="separador-footer" />
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <a href="alimentos.html"><i class="bi bi-arrow-left me-1"></i>Anterior: Alimentos</a>
+        <a href="index.html">Volver al Inicio <i class="bi bi-house ms-1"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/panico.js"></script>
+</body>
+</html>

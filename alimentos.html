@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador de Precios de Alimentos | Crisis La Paz 2026</title>
+  <meta name="description" content="Calcula cuánto más gasta una familia boliviana debido al aumento de precios durante la crisis de 2026." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="styles/estilos.css" />
+</head>
+<body>
+
+  <!-- ===== BARRA DE BANDERA ===== -->
+  <div class="flag-stripe"></div>
+
+  <!-- ===== NAVEGACIÓN ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-crisis">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <i class="bi bi-graph-up-arrow me-2"></i>Crisis <span>La Paz</span> 2026
+        </a>
+        <button class="navbar-toggler" type="button"
+          data-bs-toggle="collapse" data-bs-target="#navAlim"
+          aria-controls="navAlim" aria-expanded="false" aria-label="Menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navAlim">
+          <ul class="navbar-nav ms-auto gap-1">
+            <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house me-1"></i>Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="carburantes.html"><i class="bi bi-fuel-pump me-1"></i>Carburantes</a></li>
+            <li class="nav-item"><a class="nav-link activo" href="alimentos.html"><i class="bi bi-basket me-1"></i>Alimentos</a></li>
+            <li class="nav-item"><a class="nav-link" href="panico.html"><i class="bi bi-people me-1"></i>Pánico</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== BREADCRUMB ===== -->
+  <div class="breadcrumb-barra">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+          <li class="breadcrumb-item active">Simulador B: Precios de Alimentos</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ===== HERO DE PÁGINA ===== -->
+    <section class="hero-pagina">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="escenario-letra" style="background:rgba(211,84,0,0.85); color:white;">B</div>
+              <div class="badge-alerta" style="background:var(--color-advertencia);">🛒 Precios en Crisis</div>
+            </div>
+            <h1>Simulador de Precios de Alimentos</h1>
+            <p class="subtitulo-pagina mt-2">
+              Compara los precios anteriores y actuales de los productos de la canasta básica
+              familiar. Calcula cuánto más gasta una familia cada semana y cada mes
+              por el alza de precios durante la crisis.
+            </p>
+          </div>
+          <div class="col-lg-5">
+            <img src="img/mercado.jpg" alt="Manos sosteniendo una canasta con productos básicos y etiquetas de precios" class="img-fluid rounded-3 mb-4" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTEXTO ===== -->
+    <section id="contexto" class="seccion-py-sm bg-blanco">
+      <div class="container">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-8">
+            <h3 class="mb-3">
+              <i class="bi bi-journal-text me-2" style="color:var(--color-advertencia);"></i>
+              Situación del Escenario
+            </h3>
+            <p>
+              El bloqueo de rutas y el paro general han interrumpido el abastecimiento de
+              alimentos a La Paz. Los mercados reportan escasez de productos básicos como
+              arroz, papa, aceite y harina, generando aumentos de precio de entre el 30%
+              y el 60% en cuestión de días.
+            </p>
+            <p>
+              Este simulador permite a una familia o comunidad calcular el impacto
+              económico real del alza de precios. Se ingresan los productos que se
+              consumen normalmente y el sistema calcula la diferencia de gasto.
+            </p>
+            <div class="p-3 mb-3" style="background:#fff8e1; border-left:4px solid var(--color-advertencia); border-radius:0 8px 8px 0;">
+              <strong>Fórmulas aplicadas:</strong>
+              <div class="mt-2" style="font-family:monospace; font-size:0.9rem; line-height:2;">
+                <div>Incremento = Precio actual − Precio anterior</div>
+                <div>% Aumento = (Incremento ÷ Precio anterior) × 100</div>
+                <div>Gasto mensual anterior = Precio anterior × Cantidad</div>
+                <div>Gasto mensual actual = Precio actual × Cantidad</div>
+                <div>Diferencia mensual = Gasto actual − Gasto anterior</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <img src="img/mercado2.jpg" alt="Etiquetas de precios con aumentos porcentuales en un mercado" class="img-fluid rounded-3 mb-4" />
+            <div class="mt-3 p-3 bg-light border rounded-3">
+              <p style="font-size:0.82rem; margin:0; color:var(--color-muted);">
+                <i class="bi bi-info-circle me-1"></i>
+                Puedes agregar tantos productos como desees.
+                Los cálculos se actualizan al presionar <strong>"Calcular Impacto"</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SIMULADOR ===== -->
+    <section id="simulador" class="seccion-py-sm bg-claro">
+      <div class="container">
+        <h3 class="mb-4">
+          <i class="bi bi-calculator me-2" style="color:var(--color-primario);"></i>
+          Simulador de Precios
+        </h3>
+
+        <!-- Alertas de validación -->
+        <div id="alerta-alim-container" class="mb-3"></div>
+
+        <!-- PASO 1: Agregar productos -->
+        <div class="caja-simulador mb-4">
+          <h5 class="mb-3" style="color:var(--color-primario);">
+            <span class="badge" style="background:var(--color-advertencia); margin-right:8px;">Paso 1</span>
+            Agregar Productos a la Lista
+          </h5>
+
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label class="form-label" for="nombreProducto">
+                <i class="bi bi-tag me-1"></i>Nombre del producto
+              </label>
+              <input type="text" class="form-control" id="nombreProducto"
+                placeholder="Ej: Arroz, Papa, Aceite…" maxlength="50" />
+              <div class="form-text">Nombre del producto de la canasta familiar.</div>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label" for="precioAnterior">
+                <i class="bi bi-tag-fill me-1"></i>Precio anterior (Bs)
+              </label>
+              <input type="number" class="form-control" id="precioAnterior"
+                min="0" step="0.01" placeholder="Ej: 8" />
+            </div>
+            <div class="col-md-2">
+              <label class="form-label" for="precioActual">
+                <i class="bi bi-tag-fill me-1" style="color:var(--color-peligro);"></i>Precio actual (Bs)
+              </label>
+              <input type="number" class="form-control" id="precioActual"
+                min="0" step="0.01" placeholder="Ej: 11" />
+            </div>
+            <div class="col-md-2">
+              <label class="form-label" for="cantidadMensual">
+                <i class="bi bi-box me-1"></i>Cantidad/mes
+              </label>
+              <input type="number" class="form-control" id="cantidadMensual"
+                min="1" step="1" placeholder="Ej: 10" />
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+              <button class="btn btn-calcular w-100" onclick="agregarProducto()"
+                style="padding:10px; font-size:0.88rem;">
+                <i class="bi bi-plus-lg me-1"></i>Agregar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 2: Lista de productos -->
+        <div class="caja-simulador mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+            <h5 class="mb-0" style="color:var(--color-primario);">
+              <span class="badge" style="background:var(--color-primario); margin-right:8px;">Paso 2</span>
+              Lista de Productos
+              <span id="contador-productos" class="badge bg-secondary ms-2">0</span>
+            </h5>
+            <button class="btn btn-limpiar" style="padding:6px 16px; font-size:0.85rem;"
+              onclick="limpiarListaProductos()">
+              <i class="bi bi-trash me-1"></i>Vaciar Lista
+            </button>
+          </div>
+
+          <!-- Lista dinámica de productos (renderizada por JS) -->
+          <div id="lista-productos">
+            <div class="text-center py-4" style="color:var(--color-muted); border:2px dashed #d0d9e8; border-radius:8px;">
+              <i class="bi bi-basket" style="font-size:2rem; opacity:0.3;"></i>
+              <p class="mt-2 mb-0" style="font-size:0.9rem;">
+                Aún no hay productos. Agrega productos en el Paso 1.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 3: Calcular -->
+        <div class="d-flex gap-3 flex-wrap mb-4">
+          <button class="btn btn-calcular" onclick="calcularAlimentos()">
+            <i class="bi bi-calculator me-2"></i>Calcular Impacto de Precios
+          </button>
+          <button class="btn btn-limpiar" onclick="limpiarTodoAlimentos()">
+            <i class="bi bi-arrow-counterclockwise me-2"></i>Reiniciar Todo
+          </button>
+        </div>
+
+        <!-- ===== RESULTADOS (ocultos inicialmente) ===== -->
+        <div id="resultados-alimentos" class="caja-resultados">
+          <h4 class="mb-4">
+            <i class="bi bi-bar-chart-line me-2" style="color:var(--color-primario);"></i>
+            Resultados del Impacto en Precios
+          </h4>
+          <div id="contenido-resultados-alimentos">
+            <!-- Generado por alimentos.js -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CASOS DE ESTUDIO ===== -->
+    <section id="casos-estudio" class="seccion-py-sm bg-blanco">
+      <div class="container">
+        <div class="encabezado-seccion">
+          <span class="etiqueta-seccion">🧪 Casos de Estudio</span>
+          <h2>Datos de Prueba para Verificar</h2>
+          <div class="divider advertencia"></div>
+          <p class="mt-3">
+            Aplica los datos del caso de estudio para comprobar que los cálculos
+            son correctos con ejemplos reales de la crisis.
+          </p>
+        </div>
+
+        <div class="seccion-casos">
+          <div class="row g-4">
+            <!-- Caso oficial del documento -->
+            <div class="col-lg-6">
+              <div class="tarjeta-caso">
+                <h6>
+                  <i class="bi bi-clipboard-data me-2"></i>
+                  Caso de Estudio — Canasta Básica La Paz 2026
+                </h6>
+                <div class="table-responsive mb-3">
+                  <table class="tabla-resultado" style="font-size:0.83rem;">
+                    <thead>
+                      <tr>
+                        <th>Producto</th>
+                        <th>Precio anterior</th>
+                        <th>Precio actual</th>
+                        <th>Cantidad/mes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Arroz (kg)</strong></td>
+                        <td>8 Bs</td>
+                        <td style="color:var(--color-peligro); font-weight:700;">11 Bs</td>
+                        <td>10 u</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Papa (kg)</strong></td>
+                        <td>7 Bs</td>
+                        <td style="color:var(--color-peligro); font-weight:700;">10 Bs</td>
+                        <td>8 u</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Aceite (lt)</strong></td>
+                        <td>12 Bs</td>
+                        <td style="color:var(--color-peligro); font-weight:700;">18 Bs</td>
+                        <td>4 u</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="alerta-resultado advertencia mb-3" style="padding:10px 14px; font-size:0.84rem;">
+                  <div class="icono-alerta">⚠️</div>
+                  <div class="texto-alerta">
+                    <p>
+                      <strong>Resultado esperado:</strong> Gasto anterior total: <strong>190 Bs</strong>.
+                      Gasto actual: <strong>254 Bs</strong>. La familia gasta
+                      <strong>64 Bs más</strong> al mes (+33.7%).
+                    </p>
+                  </div>
+                </div>
+                <button class="btn-caso" onclick="aplicarCasoAlimentos1()">
+                  <i class="bi bi-play-fill"></i> Aplicar Caso y Calcular
+                </button>
+              </div>
+            </div>
+
+            <!-- Caso 2 - ampliado -->
+            <div class="col-lg-6">
+              <div class="tarjeta-caso">
+                <h6>
+                  <i class="bi bi-clipboard-data me-2"></i>
+                  Caso de Estudio 2 — Canasta Ampliada (6 productos)
+                </h6>
+                <div class="table-responsive mb-3">
+                  <table class="tabla-resultado" style="font-size:0.83rem;">
+                    <thead>
+                      <tr>
+                        <th>Producto</th>
+                        <th>Precio anterior</th>
+                        <th>Precio actual</th>
+                        <th>Cantidad/mes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Arroz (kg)</strong></td>
+                        <td>8 Bs</td>
+                        <td style="color:var(--color-peligro); font-weight:700;">11 Bs</td>
+                        <td>10 u</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Papa (kg)</strong></td>
+                        <td>7 Bs</td>
+                        <td style="color:var(--color-peligro); font-weight:700;">10 Bs</td>
+                        <td>8 u</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Aceite (lt)</strong></td>
+                        <td>12 Bs</td>
+                        <td style="color:var(--color-peligro); font-weight:700;">18 Bs</td>
+                        <td>4 u</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Azúcar (kg)</strong></td>
+                        <td>5 Bs</td>
+                        <td style="color:var(--color-peligro); font-weight:700;">8 Bs</td>
+                        <td>5 u</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Harina (kg)</strong></td>
+                        <td>6 Bs</td>
+                        <td style="color:var(--color-peligro); font-weight:700;">9 Bs</td>
+                        <td>6 u</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Leche (lt)</strong></td>
+                        <td>7 Bs</td>
+                        <td style="color:var(--color-peligro); font-weight:700;">10 Bs</td>
+                        <td>15 u</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="alerta-resultado info mb-3" style="padding:10px 14px; font-size:0.84rem;">
+                  <div class="icono-alerta">ℹ️</div>
+                  <div class="texto-alerta">
+                    <p>
+                      <strong>Resultado esperado:</strong> Gasto anterior: ~<strong>348 Bs</strong>.
+                      Gasto actual: ~<strong>506 Bs</strong>.
+                      Diferencia: +<strong>158 Bs/mes</strong> (+45.4%).
+                    </p>
+                  </div>
+                </div>
+                <button class="btn-caso" onclick="aplicarCasoAlimentos2()">
+                  <i class="bi bi-play-fill"></i> Aplicar Caso y Calcular
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONCLUSIONES ===== -->
+    <section id="conclusiones" class="seccion-conclusiones">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5">
+            <span class="etiqueta-seccion" style="background:rgba(255,255,255,0.15); color:white;">
+              💡 Conclusiones
+            </span>
+            <h2 class="mt-3 mb-3">¿Qué nos enseña este modelo?</h2>
+            <p>
+              El modelo matemático demuestra que un aumento aparentemente pequeño en
+              el precio de los alimentos básicos puede representar una pérdida significativa
+              del poder adquisitivo para las familias de menores ingresos.
+            </p>
+          </div>
+          <div class="col-lg-7">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="item-conclusion">
+                  <div class="icono-conclusion">💸</div>
+                  <h6>El Aumento es Acumulativo</h6>
+                  <p>Un alza de 3 Bs por producto puede significar más de 60 Bs extra al mes cuando se suman varios productos.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="item-conclusion">
+                  <div class="icono-conclusion">📊</div>
+                  <h6>El % Engaña</h6>
+                  <p>Un aumento del 37% en el arroz suena abstracto, pero traducido en Bs mensuales se vuelve concreto y preocupante.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="item-conclusion">
+                  <div class="icono-conclusion">👨‍👩‍👧</div>
+                  <h6>Las Familias Ajustan</h6>
+                  <p>Para mantener el gasto, las familias reducen cantidades o eliminan productos, bajando su calidad nutricional.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="item-conclusion">
+                  <div class="icono-conclusion">🔢</div>
+                  <h6>Los Datos Informan Decisiones</h6>
+                  <p>Conocer el impacto real permite priorizar qué comprar primero cuando el presupuesto es limitado.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="pie-pagina">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-6">
+          <h6><i class="bi bi-basket me-1"></i> Simulador B — Precios de Alimentos</h6>
+          <p style="margin:0; font-size:0.84rem;">
+            Parte del proyecto: <strong style="color:rgba(255,255,255,0.9);">Simulador de Crisis La Paz 2026</strong>
+          </p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p style="margin:0; font-size:0.84rem; line-height:1.7;">
+            <strong style="color:rgba(255,255,255,0.9);">Estudiante:</strong> [Tu Nombre Completo]<br>
+            <strong style="color:rgba(255,255,255,0.9);">Materia:</strong> Programación Web I · 2026
+          </p>
+        </div>
+      </div>
+      <hr class="separador-footer" />
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <a href="carburantes.html"><i class="bi bi-arrow-left me-1"></i>Anterior: Carburantes</a>
+        <a href="panico.html">Siguiente: Pánico <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JS de Alimentos (externo) -->
+  <script src="js/alimentos.js"></script>
+</body>
+</html>
