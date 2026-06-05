@@ -1,0 +1,897 @@
+/* ============================================================
+   SIMULADOR DE CRISIS BOLIVIANA — ESTILOS.CSS
+   Programación Web I | 2026
+   Escenarios: Carburantes · Alimentos · Pánico por Escasez
+   ============================================================ */
+
+/* === GOOGLE FONTS (importadas aquí para centralizar) === */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+/* =========================================================
+   1. VARIABLES CSS (Design Tokens)
+   ========================================================= */
+:root {
+  /* Paleta principal */
+  --color-primario:    #1a3a5c;   /* Azul oscuro — barras, nav */
+  --color-peligro:     #c0392b;   /* Rojo — nivel crítico      */
+  --color-advertencia: #d68910;   /* Ámbar — advertencia       */
+  --color-normal:      #1a7c4f;   /* Verde — situación OK      */
+  --color-info:        #2471a3;   /* Azul — información        */
+
+  /* Colores de la bandera boliviana (acentos) */
+  --bolivia-rojo:      #D52B1E;
+  --bolivia-amarillo:  #F4E400;
+  --bolivia-verde:     #007A3D;
+
+  /* Fondos y neutros */
+  --bg-oscuro:   #0d1b2a;
+  --bg-claro:    #f4f7fb;
+  --bg-blanco:   #ffffff;
+  --color-texto: #2c3e50;
+  --color-muted: #6c7a8d;
+
+  /* Tipografía */
+  --font-titulo: 'Playfair Display', Georgia, serif;
+  --font-cuerpo: 'Source Sans 3', 'Segoe UI', sans-serif;
+
+  /* Utilidades */
+  --radio-borde: 10px;
+  --sombra-suave: 0 2px 15px rgba(0, 0, 0, 0.07);
+  --sombra-media: 0 6px 28px rgba(0, 0, 0, 0.13);
+  --transicion:   all 0.3s ease;
+}
+
+/* =========================================================
+   2. RESET Y BASE
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-cuerpo);
+  font-size: 16px;
+  color: var(--color-texto);
+  background-color: var(--bg-claro);
+  line-height: 1.65;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-titulo);
+  color: var(--color-primario);
+  line-height: 1.25;
+}
+
+a { color: var(--color-info); transition: var(--transicion); }
+a:hover { color: var(--color-primario); }
+img { max-width: 100%; height: auto; display: block; }
+
+/* =========================================================
+   3. BARRA DE BANDERA BOLIVIANA
+   ========================================================= */
+.flag-stripe {
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    var(--bolivia-rojo)     0%   33.33%,
+    var(--bolivia-amarillo) 33.33% 66.66%,
+    var(--bolivia-verde)    66.66% 100%
+  );
+}
+
+/* =========================================================
+   4. NAVEGACIÓN
+   ========================================================= */
+.navbar-crisis {
+  background: var(--bg-oscuro) !important;
+  border-bottom: 3px solid var(--bolivia-rojo);
+  padding: 10px 0;
+}
+
+.navbar-crisis .navbar-brand {
+  font-family: var(--font-titulo);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  letter-spacing: 0.3px;
+}
+
+.navbar-crisis .navbar-brand span {
+  color: var(--bolivia-amarillo);
+}
+
+.navbar-crisis .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 7px 15px !important;
+  border-radius: 6px;
+  transition: var(--transicion);
+}
+
+.navbar-crisis .nav-link:hover,
+.navbar-crisis .nav-link.activo {
+  color: var(--bolivia-amarillo) !important;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler { border-color: rgba(255,255,255,0.4); }
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* =========================================================
+   5. BREADCRUMB
+   ========================================================= */
+.breadcrumb-barra {
+  background: #ebeff5;
+  border-bottom: 1px solid #d9dfea;
+  padding: 8px 0;
+}
+
+.breadcrumb-barra .breadcrumb {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.breadcrumb-barra .breadcrumb-item a {
+  color: var(--color-primario);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* =========================================================
+   6. HERO SECTION (Inicio e índice)
+   ========================================================= */
+.hero-section {
+  background: linear-gradient(135deg, var(--bg-oscuro) 0%, #1a3a5c 100%);
+  color: white;
+  padding: 70px 0 55px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Patrón de puntos decorativos */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.badge-alerta {
+  display: inline-block;
+  background: var(--color-peligro);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 30px;
+  margin-bottom: 14px;
+  animation: pulso-rojo 2s ease-in-out infinite;
+}
+
+@keyframes pulso-rojo {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.5); }
+  50%       { box-shadow: 0 0 0 12px rgba(192, 57, 43, 0); }
+}
+
+.hero-title {
+  font-family: var(--font-titulo);
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 620px;
+}
+
+/* Hero de páginas interiores (más compacto) */
+.hero-pagina {
+  background: linear-gradient(135deg, var(--bg-oscuro) 0%, #1a3a5c 100%);
+  color: white;
+  padding: 45px 0 40px;
+  position: relative;
+}
+
+.hero-pagina::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.hero-pagina .escenario-letra {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: var(--font-titulo);
+  margin-bottom: 15px;
+  flex-shrink: 0;
+}
+
+.hero-pagina h1 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.hero-pagina .subtitulo-pagina {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 650px;
+}
+
+/* =========================================================
+   7. PLACEHOLDERS DE IMAGEN
+   ========================================================= */
+.img-placeholder {
+  width: 100%;
+  background: linear-gradient(135deg, #dce3ed 0%, #c8d3e3 100%);
+  border: 2px dashed #99adc9;
+  border-radius: var(--radio-borde);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 20px;
+  min-height: 220px;
+  color: #5d7290;
+  transition: var(--transicion);
+}
+
+.img-placeholder:hover { border-color: var(--color-primario); background: #d0d9e8; }
+
+.img-placeholder .ph-icono { font-size: 2.8rem; margin-bottom: 10px; opacity: 0.45; }
+.img-placeholder .ph-titulo {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #3d5470;
+  margin-bottom: 5px;
+}
+.img-placeholder .ph-desc { font-size: 0.78rem; color: #6c7a8d; }
+
+.imagen-destacada {
+  margin: 0;
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  box-shadow: var(--sombra-media);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #0d1b2a;
+}
+
+.imagen-destacada img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.imagen-destacada figcaption {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.82rem;
+  padding: 10px 14px;
+  margin: 0;
+}
+
+/* =========================================================
+   8. ENCABEZADOS DE SECCIÓN
+   ========================================================= */
+.encabezado-seccion {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.encabezado-seccion .etiqueta-seccion {
+  display: inline-block;
+  background: var(--color-primario);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  border-radius: 30px;
+  margin-bottom: 14px;
+}
+
+.encabezado-seccion h2 { font-size: 1.9rem; margin-bottom: 14px; }
+
+.encabezado-seccion p {
+  font-size: 1.03rem;
+  color: var(--color-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   9. TARJETAS DE ESCENARIO (index)
+   ========================================================= */
+.card-escenario {
+  border: none;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  transition: var(--transicion);
+  overflow: hidden;
+  height: 100%;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+.card-escenario:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-media);
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-escenario .cabecera-card {
+  padding: 22px 24px 18px;
+}
+
+.card-escenario .cabecera-card.fuel   { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+.card-escenario .cabecera-card.food   { background: linear-gradient(135deg, #d35400, #e67e22); }
+.card-escenario .cabecera-card.panico { background: linear-gradient(135deg, #1a3a5c, #2980b9); }
+
+.card-escenario .letra-escenario {
+  width: 42px;
+  height: 42px;
+  background: rgba(255,255,255,0.22);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-family: var(--font-titulo);
+  margin-bottom: 12px;
+}
+
+.card-escenario .cabecera-card h5 {
+  color: white;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.card-escenario .cuerpo-card { padding: 22px 24px; background: white; }
+.card-escenario .cuerpo-card p { font-size: 0.9rem; color: var(--color-muted); margin-bottom: 15px; }
+
+.card-escenario .btn-ver {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-primario);
+  text-decoration: none;
+  transition: var(--transicion);
+}
+
+.card-escenario .btn-ver:hover { gap: 10px; }
+
+/* =========================================================
+   10. CONTEXTO DE CRISIS (bloques de puntos)
+   ========================================================= */
+.bloque-crisis {
+  background: #fff8e1;
+  border-left: 5px solid var(--color-advertencia);
+  border-radius: 0 var(--radio-borde) var(--radio-borde) 0;
+  padding: 22px 28px;
+}
+
+.bloque-crisis h5 { color: var(--color-advertencia); }
+
+.punto-crisis {
+  background: white;
+  border-radius: var(--radio-borde);
+  padding: 18px 22px;
+  box-shadow: var(--sombra-suave);
+  border-left: 4px solid var(--color-peligro);
+  margin-bottom: 14px;
+  transition: var(--transicion);
+}
+
+.punto-crisis:hover { transform: translateX(5px); }
+.punto-crisis h6 { color: var(--color-peligro); font-weight: 700; margin-bottom: 5px; }
+.punto-crisis p { font-size: 0.9rem; color: var(--color-muted); margin: 0; }
+
+/* =========================================================
+   11. SECCIÓN SIMULADOR (formularios)
+   ========================================================= */
+.caja-simulador {
+  background: white;
+  border-radius: var(--radio-borde);
+  padding: 38px 42px;
+  box-shadow: var(--sombra-suave);
+  border: 1px solid #e8ecf5;
+}
+
+.form-label {
+  font-weight: 700;
+  font-size: 0.87rem;
+  color: var(--color-primario);
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-control, .form-select {
+  border: 2px solid #d8e0ef;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-family: var(--font-cuerpo);
+  transition: var(--transicion);
+  color: var(--color-texto);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px rgba(26, 58, 92, 0.15);
+  outline: none;
+}
+
+.form-control.is-invalid { border-color: var(--color-peligro); }
+.invalid-feedback { font-size: 0.8rem; color: var(--color-peligro); }
+
+.form-text { font-size: 0.8rem; color: var(--color-muted); }
+
+/* Botones principales */
+.btn-calcular {
+  background: var(--color-primario);
+  color: white !important;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 36px;
+  font-size: 0.97rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transicion);
+  letter-spacing: 0.3px;
+}
+
+.btn-calcular:hover {
+  background: #0d2844;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(26, 58, 92, 0.35);
+}
+
+.btn-limpiar {
+  background: transparent;
+  color: var(--color-muted) !important;
+  border: 2px solid #c8d4e3;
+  border-radius: 8px;
+  padding: 10px 26px;
+  font-size: 0.97rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transicion);
+}
+
+.btn-limpiar:hover {
+  background: #edf0f6;
+  color: var(--color-texto) !important;
+  border-color: #99adc9;
+}
+
+/* =========================================================
+   12. SECCIÓN DE RESULTADOS
+   ========================================================= */
+.caja-resultados {
+  background: white;
+  border-radius: var(--radio-borde);
+  padding: 35px 40px;
+  box-shadow: var(--sombra-suave);
+  border: 1px solid #e8ecf5;
+  margin-top: 28px;
+  display: none;        /* oculto por defecto, JS lo muestra */
+}
+
+.caja-resultados.visible {
+  display: block;
+  animation: aparece 0.45s ease forwards;
+}
+
+@keyframes aparece {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Tarjetas métricas */
+.tarjeta-metrica {
+  border-radius: var(--radio-borde);
+  padding: 22px 18px;
+  text-align: center;
+  margin-bottom: 18px;
+  border: 2px solid transparent;
+  transition: var(--transicion);
+}
+
+.tarjeta-metrica:hover { transform: translateY(-3px); }
+
+.tarjeta-metrica.normal      { background: #eafaf1; border-color: var(--color-normal); }
+.tarjeta-metrica.advertencia { background: #fef9e7; border-color: var(--color-advertencia); }
+.tarjeta-metrica.critico     { background: #fdedec; border-color: var(--color-peligro); }
+.tarjeta-metrica.info        { background: #eaf4fb; border-color: var(--color-info); }
+
+.tarjeta-metrica .valor {
+  font-family: var(--font-titulo);
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.tarjeta-metrica.normal      .valor { color: var(--color-normal); }
+.tarjeta-metrica.advertencia .valor { color: var(--color-advertencia); }
+.tarjeta-metrica.critico     .valor { color: var(--color-peligro); }
+.tarjeta-metrica.info        .valor { color: var(--color-info); }
+
+.tarjeta-metrica .etiqueta {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-muted);
+}
+
+/* Alertas de resultado */
+.alerta-resultado {
+  border-radius: var(--radio-borde);
+  padding: 18px 22px;
+  margin: 20px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.alerta-resultado.normal      { background: #eafaf1; border-left: 5px solid var(--color-normal); }
+.alerta-resultado.advertencia { background: #fef9e7; border-left: 5px solid var(--color-advertencia); }
+.alerta-resultado.critico     { background: #fdedec; border-left: 5px solid var(--color-peligro); }
+.alerta-resultado.info        { background: #eaf4fb; border-left: 5px solid var(--color-info); }
+
+.alerta-resultado .icono-alerta { font-size: 1.7rem; flex-shrink: 0; }
+.alerta-resultado .texto-alerta .titulo { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+.alerta-resultado .texto-alerta p { font-size: 0.9rem; color: var(--color-texto); margin: 0; }
+
+/* =========================================================
+   13. TABLAS DE RESULTADOS
+   ========================================================= */
+.tabla-resultado {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+}
+
+.tabla-resultado thead th {
+  background: var(--color-primario);
+  color: white;
+  padding: 13px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.tabla-resultado tbody td {
+  padding: 11px 16px;
+  border-bottom: 1px solid #eef1f7;
+  font-size: 0.88rem;
+}
+
+.tabla-resultado tbody tr:hover { background: #f4f7fb; }
+.tabla-resultado tbody tr:last-child td { border-bottom: none; }
+
+/* Clases de estado para filas */
+.fila-normal      { background: #f0fbf6 !important; }
+.fila-advertencia { background: #fef9e7 !important; }
+.fila-critico     { background: #fdedec !important; }
+
+/* Badges de estado */
+.badge-estado {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-normal      { background: #d5f5e3; color: #1a7c4f; }
+.badge-advertencia { background: #fdebd0; color: #d68910; }
+.badge-critico     { background: #fadbd8; color: #c0392b; }
+
+/* =========================================================
+   14. BARRAS VISUALES (Escenario Pánico)
+   ========================================================= */
+.barra-contenedor {
+  background: #eef1f7;
+  border-radius: 8px;
+  height: 34px;
+  overflow: hidden;
+  position: relative;
+}
+
+.barra-relleno {
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: white;
+  transition: width 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 40px;
+}
+
+.barra-normal  { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+.barra-nueva   { background: linear-gradient(90deg, #e67e22, #f39c12); }
+.barra-stock   { background: linear-gradient(90deg, #2471a3, #3498db); }
+.barra-critica { background: linear-gradient(90deg, #c0392b, #e74c3c); }
+
+/* =========================================================
+   15. GESTIÓN DE PRODUCTOS (Escenario Alimentos)
+   ========================================================= */
+.producto-item {
+  background: #f4f7fb;
+  border: 1px solid #d8e0ef;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: var(--transicion);
+}
+
+.producto-item:hover { border-color: var(--color-primario); background: #edf1fb; }
+
+.producto-item .nombre-producto { font-weight: 700; color: var(--color-primario); font-size: 0.95rem; }
+.producto-item .detalle-producto { font-size: 0.82rem; color: var(--color-muted); }
+
+.btn-eliminar-producto {
+  background: none;
+  border: none;
+  color: var(--color-peligro);
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: var(--transicion);
+}
+
+.btn-eliminar-producto:hover { background: #fadbd8; }
+
+/* =========================================================
+   16. CASOS DE ESTUDIO
+   ========================================================= */
+.seccion-casos {
+  background: #f4f7fb;
+  border-radius: var(--radio-borde);
+  padding: 35px 38px;
+}
+
+.tarjeta-caso {
+  background: white;
+  border-radius: var(--radio-borde);
+  padding: 24px;
+  box-shadow: var(--sombra-suave);
+  border: 2px solid #e8ecf5;
+  transition: var(--transicion);
+  height: 100%;
+}
+
+.tarjeta-caso:hover { border-color: var(--color-primario); }
+
+.tarjeta-caso h6 {
+  color: var(--color-primario);
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eef1f7;
+  font-size: 0.95rem;
+}
+
+.tabla-caso {
+  width: 100%;
+  font-size: 0.84rem;
+  margin-bottom: 14px;
+  border-collapse: collapse;
+}
+
+.tabla-caso td {
+  padding: 5px 0;
+  border-bottom: 1px solid #eef1f7;
+  vertical-align: top;
+}
+
+.tabla-caso td:first-child {
+  color: var(--color-muted);
+  font-weight: 600;
+  width: 60%;
+  padding-right: 10px;
+}
+
+.tabla-caso td:last-child {
+  font-weight: 700;
+  color: var(--color-primario);
+  text-align: right;
+}
+
+.btn-caso {
+  width: 100%;
+  background: var(--color-info);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 9px;
+  font-size: 0.87rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transicion);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-caso:hover { background: #1a5c84; transform: translateY(-1px); }
+
+/* =========================================================
+   17. SECCIÓN CONCLUSIONES
+   ========================================================= */
+.seccion-conclusiones {
+  background: linear-gradient(135deg, var(--bg-oscuro) 0%, #1a3a5c 100%);
+  padding: 55px 0;
+  position: relative;
+}
+
+.seccion-conclusiones::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 25px 25px;
+}
+
+.seccion-conclusiones h2 { color: white; font-family: var(--font-titulo); }
+.seccion-conclusiones p  { color: rgba(255, 255, 255, 0.8); }
+
+.item-conclusion {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radio-borde);
+  padding: 22px;
+  height: 100%;
+  transition: var(--transicion);
+}
+
+.item-conclusion:hover { background: rgba(255, 255, 255, 0.1); }
+.item-conclusion .icono-conclusion { font-size: 2rem; margin-bottom: 12px; }
+.item-conclusion h6 { color: var(--bolivia-amarillo); font-family: var(--font-titulo); font-size: 1rem; margin-bottom: 8px; }
+.item-conclusion p  { color: rgba(255,255,255,0.75); font-size: 0.88rem; margin: 0; }
+
+/* =========================================================
+   18. PIE DE PÁGINA
+   ========================================================= */
+footer.pie-pagina {
+  background: var(--bg-oscuro);
+  color: rgba(255, 255, 255, 0.65);
+  padding: 28px 0;
+  font-size: 0.88rem;
+  border-top: 3px solid #1a3a5c;
+}
+
+footer.pie-pagina h6 {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-cuerpo);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+footer.pie-pagina a { color: var(--bolivia-amarillo); text-decoration: none; }
+footer.pie-pagina a:hover { color: white; }
+
+.lista-footer { list-style: none; padding: 0; margin: 0; }
+.lista-footer li { margin-bottom: 4px; }
+
+.separador-footer {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin: 20px 0;
+}
+
+/* =========================================================
+   19. UTILIDADES GENERALES
+   ========================================================= */
+.seccion-py { padding: 60px 0; }
+.seccion-py-sm { padding: 40px 0; }
+.bg-blanco { background: white; }
+.bg-claro  { background: var(--bg-claro); }
+
+.divider {
+  height: 4px;
+  border-radius: 2px;
+  width: 55px;
+  margin: 12px auto 0;
+}
+
+.divider.primario    { background: var(--color-primario); }
+.divider.peligro     { background: var(--color-peligro); }
+.divider.advertencia { background: var(--color-advertencia); }
+
+.chip-tecnologia {
+  display: inline-block;
+  background: #edf1fb;
+  color: var(--color-primario);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin: 3px 2px;
+  border: 1px solid #c8d4e8;
+}
+
+/* =========================================================
+   20. DISEÑO RESPONSIVO
+   ========================================================= */
+@media (max-width: 991px) {
+  .caja-simulador  { padding: 28px 24px; }
+  .caja-resultados { padding: 28px 24px; }
+  .seccion-casos   { padding: 28px 24px; }
+}
+
+@media (max-width: 768px) {
+  .hero-title  { font-size: 1.85rem; }
+  .hero-pagina h1 { font-size: 1.5rem; }
+
+  .caja-simulador  { padding: 22px 16px; }
+  .caja-resultados { padding: 22px 16px; }
+
+  .tarjeta-metrica .valor { font-size: 1.65rem; }
+
+  .tabla-resultado {
+    font-size: 0.82rem;
+  }
+
+  .tabla-resultado thead th,
+  .tabla-resultado tbody td {
+    padding: 9px 10px;
+  }
+
+  .btn-calcular, .btn-limpiar { width: 100%; text-align: center; }
+  .d-flex.gap-3.flex-wrap { flex-direction: column; }
+}
+
+@media (max-width: 576px) {
+  .hero-title  { font-size: 1.45rem; }
+  .encabezado-seccion h2 { font-size: 1.5rem; }
+  .seccion-py  { padding: 40px 0; }
+  .seccion-casos   { padding: 18px 14px; }
+}
