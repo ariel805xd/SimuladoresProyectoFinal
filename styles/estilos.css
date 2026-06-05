@@ -1,15 +1,5 @@
-/* ============================================================
-   SIMULADOR DE CRISIS BOLIVIANA — ESTILOS.CSS
-   Programación Web I | 2026
-   Escenarios: Carburantes · Alimentos · Pánico por Escasez
-   ============================================================ */
-
-/* === GOOGLE FONTS (importadas aquí para centralizar) === */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 
-/* =========================================================
-   1. VARIABLES CSS (Design Tokens)
-   ========================================================= */
 :root {
   /* Paleta principal */
   --color-primario:    #1a3a5c;   /* Azul oscuro — barras, nav */
@@ -41,9 +31,6 @@
   --transicion:   all 0.3s ease;
 }
 
-/* =========================================================
-   2. RESET Y BASE
-   ========================================================= */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -65,9 +52,6 @@ a { color: var(--color-info); transition: var(--transicion); }
 a:hover { color: var(--color-primario); }
 img { max-width: 100%; height: auto; display: block; }
 
-/* =========================================================
-   3. BARRA DE BANDERA BOLIVIANA
-   ========================================================= */
 .flag-stripe {
   height: 5px;
   background: linear-gradient(
@@ -78,9 +62,6 @@ img { max-width: 100%; height: auto; display: block; }
   );
 }
 
-/* =========================================================
-   4. NAVEGACIÓN
-   ========================================================= */
 .navbar-crisis {
   background: var(--bg-oscuro) !important;
   border-bottom: 3px solid var(--bolivia-rojo);
@@ -119,9 +100,6 @@ img { max-width: 100%; height: auto; display: block; }
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* =========================================================
-   5. BREADCRUMB
-   ========================================================= */
 .breadcrumb-barra {
   background: #ebeff5;
   border-bottom: 1px solid #d9dfea;
@@ -139,9 +117,6 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 600;
 }
 
-/* =========================================================
-   6. HERO SECTION (Inicio e índice)
-   ========================================================= */
 .hero-section {
   background: linear-gradient(135deg, var(--bg-oscuro) 0%, #1a3a5c 100%);
   color: white;
@@ -236,9 +211,7 @@ img { max-width: 100%; height: auto; display: block; }
   max-width: 650px;
 }
 
-/* =========================================================
-   7. PLACEHOLDERS DE IMAGEN
-   ========================================================= */
+
 .img-placeholder {
   width: 100%;
   background: linear-gradient(135deg, #dce3ed 0%, #c8d3e3 100%);
@@ -288,9 +261,6 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0;
 }
 
-/* =========================================================
-   8. ENCABEZADOS DE SECCIÓN
-   ========================================================= */
 .encabezado-seccion {
   text-align: center;
   margin-bottom: 45px;
@@ -318,9 +288,6 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0 auto;
 }
 
-/* =========================================================
-   9. TARJETAS DE ESCENARIO (index)
-   ========================================================= */
 .card-escenario {
   border: none;
   border-radius: var(--radio-borde);
@@ -385,9 +352,6 @@ img { max-width: 100%; height: auto; display: block; }
 
 .card-escenario .btn-ver:hover { gap: 10px; }
 
-/* =========================================================
-   10. CONTEXTO DE CRISIS (bloques de puntos)
-   ========================================================= */
 .bloque-crisis {
   background: #fff8e1;
   border-left: 5px solid var(--color-advertencia);
@@ -411,9 +375,6 @@ img { max-width: 100%; height: auto; display: block; }
 .punto-crisis h6 { color: var(--color-peligro); font-weight: 700; margin-bottom: 5px; }
 .punto-crisis p { font-size: 0.9rem; color: var(--color-muted); margin: 0; }
 
-/* =========================================================
-   11. SECCIÓN SIMULADOR (formularios)
-   ========================================================= */
 .caja-simulador {
   background: white;
   border-radius: var(--radio-borde);
@@ -489,9 +450,6 @@ img { max-width: 100%; height: auto; display: block; }
   border-color: #99adc9;
 }
 
-/* =========================================================
-   12. SECCIÓN DE RESULTADOS
-   ========================================================= */
 .caja-resultados {
   background: white;
   border-radius: var(--radio-borde);
@@ -569,9 +527,6 @@ img { max-width: 100%; height: auto; display: block; }
 .alerta-resultado .texto-alerta .titulo { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
 .alerta-resultado .texto-alerta p { font-size: 0.9rem; color: var(--color-texto); margin: 0; }
 
-/* =========================================================
-   13. TABLAS DE RESULTADOS
-   ========================================================= */
 .tabla-resultado {
   width: 100%;
   border-collapse: collapse;
@@ -620,9 +575,6 @@ img { max-width: 100%; height: auto; display: block; }
 .badge-advertencia { background: #fdebd0; color: #d68910; }
 .badge-critico     { background: #fadbd8; color: #c0392b; }
 
-/* =========================================================
-   14. BARRAS VISUALES (Escenario Pánico)
-   ========================================================= */
 .barra-contenedor {
   background: #eef1f7;
   border-radius: 8px;
@@ -650,9 +602,6 @@ img { max-width: 100%; height: auto; display: block; }
 .barra-stock   { background: linear-gradient(90deg, #2471a3, #3498db); }
 .barra-critica { background: linear-gradient(90deg, #c0392b, #e74c3c); }
 
-/* =========================================================
-   15. GESTIÓN DE PRODUCTOS (Escenario Alimentos)
-   ========================================================= */
 .producto-item {
   background: #f4f7fb;
   border: 1px solid #d8e0ef;
@@ -685,9 +634,6 @@ img { max-width: 100%; height: auto; display: block; }
 
 .btn-eliminar-producto:hover { background: #fadbd8; }
 
-/* =========================================================
-   16. CASOS DE ESTUDIO
-   ========================================================= */
 .seccion-casos {
   background: #f4f7fb;
   border-radius: var(--radio-borde);
@@ -760,9 +706,6 @@ img { max-width: 100%; height: auto; display: block; }
 
 .btn-caso:hover { background: #1a5c84; transform: translateY(-1px); }
 
-/* =========================================================
-   17. SECCIÓN CONCLUSIONES
-   ========================================================= */
 .seccion-conclusiones {
   background: linear-gradient(135deg, var(--bg-oscuro) 0%, #1a3a5c 100%);
   padding: 55px 0;
@@ -794,9 +737,6 @@ img { max-width: 100%; height: auto; display: block; }
 .item-conclusion h6 { color: var(--bolivia-amarillo); font-family: var(--font-titulo); font-size: 1rem; margin-bottom: 8px; }
 .item-conclusion p  { color: rgba(255,255,255,0.75); font-size: 0.88rem; margin: 0; }
 
-/* =========================================================
-   18. PIE DE PÁGINA
-   ========================================================= */
 footer.pie-pagina {
   background: var(--bg-oscuro);
   color: rgba(255, 255, 255, 0.65);
@@ -827,9 +767,6 @@ footer.pie-pagina a:hover { color: white; }
   margin: 20px 0;
 }
 
-/* =========================================================
-   19. UTILIDADES GENERALES
-   ========================================================= */
 .seccion-py { padding: 60px 0; }
 .seccion-py-sm { padding: 40px 0; }
 .bg-blanco { background: white; }
@@ -858,9 +795,6 @@ footer.pie-pagina a:hover { color: white; }
   border: 1px solid #c8d4e8;
 }
 
-/* =========================================================
-   20. DISEÑO RESPONSIVO
-   ========================================================= */
 @media (max-width: 991px) {
   .caja-simulador  { padding: 28px 24px; }
   .caja-resultados { padding: 28px 24px; }
