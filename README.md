@@ -106,7 +106,7 @@ Deficit = Nueva demanda - Stock disponible
 ## Estructura del proyecto
 
 ```text
-Proyecto fina/
+Proyecto final/
 ├── index.html
 ├── carburantes.html
 ├── alimentos.html
@@ -118,11 +118,16 @@ Proyecto fina/
 │   ├── alimentos.js
 │   └── panico.js
 ├── img/
+│   ├── Bloqueo2.jpg
 │   ├── bloqueo1.jpg
-│   └── README-imagenes.md
+│   ├── escasez1.jpg
+│   ├── escasez2.jpg
+│   ├── gasolina1.jpg
+│   ├── gasolina2.jpg
+│   ├── mercado.jpg
+│   ├── mercado2.jpg
+│   ├── protest.jpg
 └── README.md
-```
-
 ## Como probar el proyecto
 
 1. Abrir `index.html` en el navegador.
