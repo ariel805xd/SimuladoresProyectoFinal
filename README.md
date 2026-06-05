@@ -183,15 +183,15 @@ La carpeta `img` contiene `bloqueo1.jpg`, usada como imagen principal del inicio
 Completar estos datos antes de entregar:
 
 ```text
-Nombre completo: [Tu Nombre Completo]
+Nombre completo: Ariel Orlando Bustillos Cadena
 Materia: Programacion Web I
 Titulo del proyecto: Simulador web de abastecimiento, precios y consumo familiar
-Enlace de la pagina web: [Pegar enlace de GitHub Pages, Netlify o Vercel]
-Enlace del repositorio Git: [Pegar enlace del repositorio]
+Enlace de la pagina web: https://ariel805xd.github.io/SimuladoresProyectoFinal/index.html
+Enlace del repositorio Git: https://github.com/ariel805xd/SimuladoresProyectoFinal
 ```
 
 ## Creditos
 
-- Estudiante: `[Tu Nombre Completo]`
+- Estudiante: `Ariel Orlando Bustillos Cadena`
 - Materia: Programacion Web I
 - Gestion: 2026
